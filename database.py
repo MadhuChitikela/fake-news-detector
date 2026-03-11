@@ -75,6 +75,15 @@ def get_stats():
     }
 
 
+def clear_history():
+    conn = sqlite3.connect(DB)
+    c = conn.cursor()
+    c.execute("DELETE FROM checks")
+    conn.commit()
+    conn.close()
+    print("🗑️ History cleared!")
+
+
 if __name__ == "__main__":
     init_db()
     print("Stats:", get_stats())

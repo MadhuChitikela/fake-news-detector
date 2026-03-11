@@ -5,7 +5,7 @@ import plotly.express as px
 from classifier import classify_text
 from fact_checker import fact_check_article
 from explainer import get_highlighted_sentences
-from database import init_db, save_check, get_recent, get_stats
+from database import init_db, save_check, get_recent, get_stats, clear_history
 
 # ── Page Config ──────────────────────────────────────────────────
 st.set_page_config(
@@ -159,6 +159,11 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     st.markdown("<hr>", unsafe_allow_html=True)
+    if st.button("🗑️  Clear All History", use_container_width=True):
+        clear_history()
+        st.toast("History cleared successfully!", icon="🗑️")
+        st.rerun()
+
     st.markdown("<h4 style='color:#475569;'>🕐 Recent History</h4>", unsafe_allow_html=True)
     recent = get_recent(5)
     for row in recent:
