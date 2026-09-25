@@ -278,10 +278,25 @@ with tab1:
 
     with col1:
         st.markdown("### 📄 Paste Article to Begin")
+
+        # Quick Test Samples
+        if "article_input" not in st.session_state:
+            st.session_state.article_input = ""
+
+        st.markdown("<p style='font-size:0.85rem; font-weight:700; color:#475569; margin-bottom:6px;'>⚡ Quick Test Notes / Samples:</p>", unsafe_allow_html=True)
+        q1, q2, q3 = st.columns(3)
+        if q1.button("🟢 Real Sample", use_container_width=True):
+            st.session_state.article_input = "NASA's James Webb Space Telescope has captured deep-space imagery confirming the presence of organic carbon compounds and amino acid precursors in an interstellar molecular cloud."
+        if q2.button("🔴 Fake Sample", use_container_width=True):
+            st.session_state.article_input = "BREAKING: Secret government documents reveal scientists have replaced the drinking water in major cities with caffeinated energy drinks to boost factory productivity."
+        if q3.button("🟡 Mixed Claim", use_container_width=True):
+            st.session_state.article_input = "Global tech leaders are rumored to be finalizing a secret consortium to replace all banking networks with quantum computing protocols by next month."
+
         article = st.text_area(
             label="Article Input",
+            value=st.session_state.article_input,
             placeholder="Enter the news headline or full text here for a deep-dive analysis...",
-            height=320,
+            height=250,
             label_visibility="collapsed"
         )
         analyze_btn = st.button("🚀 START INVESTIGATION", use_container_width=True)
