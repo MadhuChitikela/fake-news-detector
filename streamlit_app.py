@@ -15,117 +15,197 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ── Clean & Glassy UI Theme (Front-End Developer Style) ──────────
+# ── Clean & High-Contrast UI Theme ───────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@500;700;800&display=swap');
 
 /* Base Styles */
 * { font-family: 'Inter', sans-serif; }
-h1, h2, h3 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -0.02em; }
+h1, h2, h3, h4 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; color: #0f172a; letter-spacing: -0.01em; }
+p, span, label, div { color: #1e293b; }
 
 .stApp {
-    background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
-    color: #1a1c23;
+    background: #f8fafc;
+    color: #0f172a;
 }
 
-/* Glassmorphism Sidebar */
+/* Sidebar - Crisp Solid Contrast */
 section[data-testid="stSidebar"] {
-    background: rgba(255, 255, 255, 0.4) !important;
-    backdrop-filter: blur(20px);
-    border-right: 1px solid rgba(0, 122, 255, 0.1);
+    background: #ffffff !important;
+    border-right: 1.5px solid #e2e8f0 !important;
+}
+section[data-testid="stSidebar"] h2 {
+    color: #1d4ed8 !important;
+}
+section[data-testid="stSidebar"] h4 {
+    color: #0f172a !important;
+    font-weight: 700 !important;
 }
 
-/* Metric Cards - Modern Blue Style */
+/* Metric Cards - High Contrast */
 .metric-container {
-    padding: 1.5rem;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(0, 122, 255, 0.08);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02);
+    padding: 1.25rem 1rem;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
 }
 .metric-value {
     font-size: 2rem;
     font-weight: 800;
-    color: #007aff;
-    margin-bottom: 0.2rem;
+    color: #1d4ed8;
+    margin-bottom: 0.25rem;
+    line-height: 1.1;
 }
 .metric-label {
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.78rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #64748b;
+    color: #475569;
 }
 
 /* Analysis Card */
 .analysis-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-/* Verdict Badges */
+/* Verdict Badges - Strong Readable Colors */
 .badge {
-    padding: 8px 16px;
-    border-radius: 99px;
-    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    font-weight: 800;
     font-size: 14px;
     display: inline-block;
+    letter-spacing: 0.02em;
 }
-.badge-real { background: #ecfdf5; color: #059669; border: 1px solid #10b981; }
-.badge-fake { background: #fef2f2; color: #dc2626; border: 1px solid #ef4444; }
-.badge-uncertain { background: #fffbeb; color: #d97706; border: 1px solid #f59e0b; }
+.badge-real {
+    background: #dcfce7 !important;
+    color: #14532d !important;
+    border: 1.5px solid #86efac !important;
+}
+.badge-fake {
+    background: #fee2e2 !important;
+    color: #7f1d1d !important;
+    border: 1.5px solid #fca5a5 !important;
+}
+.badge-uncertain {
+    background: #fef3c7 !important;
+    color: #78350f !important;
+    border: 1.5px solid #fcd34d !important;
+}
 
-/* Highlighted Sentences */
+/* Highlighted Sentences - Distinct Backgrounds with Dark Readable Text */
 .sent-box {
     padding: 12px 16px;
     border-radius: 10px;
-    margin-bottom: 8px;
-    border-left: 4px solid #cbd5e1;
-    background: #f8fafc;
-    transition: all 0.2s ease;
+    margin-bottom: 10px;
+    border-left: 5px solid #94a3b8;
+    background: #f1f5f9;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
-.sent-high   { background: #fff1f2; border-left: 4px solid #f43f5e; color: #9f1239; }
-.sent-medium { background: #fffcf0; border-left: 4px solid #f59e0b; color: #92400e; }
-.sent-low    { background: #f0fdf4; border-left: 4px solid #10b981; color: #166534; }
+.sent-high {
+    background: #ffe4e6 !important;
+    border-left: 5px solid #e11d48 !important;
+    color: #881337 !important;
+}
+.sent-medium {
+    background: #fef3c7 !important;
+    border-left: 5px solid #d97706 !important;
+    color: #78350f !important;
+}
+.sent-low {
+    background: #dcfce7 !important;
+    border-left: 5px solid #16a34a !important;
+    color: #14532d !important;
+}
 
 /* Custom Inputs & Buttons */
 .stTextArea textarea {
-    background: rgba(255, 255, 255, 0.9) !important;
-    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    border: 1.5px solid #cbd5e1 !important;
     border-radius: 12px !important;
     font-size: 15px !important;
-    color: #1e293b !important;
+    color: #0f172a !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
 }
 .stTextArea textarea:focus {
-    border-color: #007aff !important;
-    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1) !important;
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
 }
 
 .stButton > button {
-    background: #007aff !important;
-    color: white !important;
+    background: #2563eb !important;
+    color: #ffffff !important;
     font-weight: 700 !important;
-    border-radius: 12px !important;
+    border-radius: 10px !important;
     padding: 0.75rem 2rem !important;
     border: none !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 122, 255, 0.3) !important;
-    transition: transform 0.2s ease !important;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.25) !important;
+    transition: all 0.2s ease !important;
 }
 .stButton > button:hover {
-    transform: translateY(-2px);
-    background: #006ce0 !important;
+    background: #1d4ed8 !important;
+    box-shadow: 0 6px 12px -1px rgba(37, 99, 235, 0.35) !important;
+}
+
+/* Sidebar Action Button */
+section[data-testid="stSidebar"] .stButton > button {
+    background: #f8fafc !important;
+    color: #dc2626 !important;
+    border: 1.5px solid #fecaca !important;
+    box-shadow: none !important;
+}
+section[data-testid="stSidebar"] .stButton > button:hover {
+    background: #fee2e2 !important;
+    color: #b91c1c !important;
+    border-color: #fca5a5 !important;
+}
+
+/* Tabs Styling - Bold & High Contrast */
+button[data-baseweb="tab"] {
+    color: #475569 !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+}
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: #1d4ed8 !important;
+    font-weight: 700 !important;
+    border-bottom: 2px solid #1d4ed8 !important;
+}
+
+/* Expanders */
+div[data-testid="stExpander"] {
+    background: #ffffff !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+}
+div[data-testid="stExpander"] summary {
+    color: #0f172a !important;
+    font-weight: 600 !important;
 }
 
 /* Footer & Dividers */
-hr { border-color: rgba(0, 122, 255, 0.05); }
-.footer { color: #94a3b8; font-size: 0.8rem; margin-top: 4rem; text-align: center; }
+hr {
+    border-color: #e2e8f0 !important;
+    margin: 1.5rem 0 !important;
+}
+.footer {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 4rem;
+    text-align: center;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -134,7 +214,7 @@ init_db()
 
 # ── Sidebar ──────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("<h2 style='color:#007aff; margin-bottom:1.5rem;'>🛡️ Guardian Intelligence</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color:#1d4ed8; margin-bottom:1.5rem;'>🛡️ Guardian Intelligence</h2>", unsafe_allow_html=True)
     
     stats = get_stats()
     
@@ -145,15 +225,15 @@ with st.sidebar:
         <div class="metric-label">Articles Scanned</div>
     </div>
     <div class="metric-container">
-        <div class="metric-value" style="color:#10b981">{stats['real']}</div>
+        <div class="metric-value" style="color:#15803d;">{stats['real']}</div>
         <div class="metric-label">Verified Real</div>
     </div>
     <div class="metric-container">
-        <div class="metric-value" style="color:#ef4444">{stats['fake']}</div>
+        <div class="metric-value" style="color:#dc2626;">{stats['fake']}</div>
         <div class="metric-label">Caught Fake</div>
     </div>
     <div class="metric-container">
-        <div class="metric-value" style="color:#f59e0b">{stats['avg_trust']}%</div>
+        <div class="metric-value" style="color:#b45309;">{stats['avg_trust']}%</div>
         <div class="metric-label">Intelligence Trust</div>
     </div>
     """, unsafe_allow_html=True)
@@ -164,23 +244,23 @@ with st.sidebar:
         st.toast("History cleared successfully!", icon="🗑️")
         st.rerun()
 
-    st.markdown("<h4 style='color:#475569;'>🕐 Recent History</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='color:#0f172a; margin-top:1.5rem;'>🕐 Recent History</h4>", unsafe_allow_html=True)
     recent = get_recent(5)
     for row in recent:
         id_, ts, label, trust, verdict = row
-        color = "#10b981" if label == "REAL" else "#ef4444"
-        st.markdown(f"<p style='font-size:0.85rem; margin-bottom:4px;'><b>#{id_}</b> | <span style='color:{color}'>{label}</span> — {trust}%</p>", unsafe_allow_html=True)
+        color = "#15803d" if label == "REAL" else "#dc2626"
+        st.markdown(f"<p style='font-size:0.88rem; margin-bottom:6px; color:#1e293b;'><b>#{id_}</b> | <span style='color:{color}; font-weight:700;'>{label}</span> — <span style='font-weight:600;'>{trust}%</span></p>", unsafe_allow_html=True)
 
 # ── Main Header ──────────────────────────────────────────────────
 st.markdown("""
-<div style="padding: 2rem 0 3rem">
-    <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:#007aff; letter-spacing:0.1em; margin-bottom:0.5rem">
+<div style="padding: 1.5rem 0 2.5rem">
+    <div style="font-size:0.8rem; font-weight:800; text-transform:uppercase; color:#2563eb; letter-spacing:0.08em; margin-bottom:0.5rem">
         Intelligence Dashboard
     </div>
-    <h1 style="font-size:3rem; margin-top:0;">
-        News <span style="background: linear-gradient(to right, #007aff, #00c6ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Guardian.</span>
+    <h1 style="font-size:2.8rem; margin-top:0; color:#0f172a;">
+        News <span style="background: linear-gradient(135deg, #1d4ed8, #0284c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Guardian.</span>
     </h1>
-    <p style="font-size:1.1rem; color:#64748b; max-width:650px;">
+    <p style="font-size:1.05rem; color:#334155; max-width:650px; line-height:1.6;">
         Advanced fake news classification using BERT fine-tuned on GPU, multi-LLM fact verification, and 
         real-time web search integration.
     </p>
@@ -231,15 +311,15 @@ with tab1:
             fig = go.Figure(go.Indicator(
                 mode="gauge+number",
                 value=trust,
-                number={"suffix": "%", "font": {"color": "#007aff", "size": 36}},
+                number={"suffix": "%", "font": {"color": "#1d4ed8", "size": 36, "family": "Bricolage Grotesque"}},
                 gauge={
-                    "axis": {"range": [0, 100], "tickwidth": 1, "tickcolor": "#e2e8f0"},
-                    "bar": {"color": "#007aff", "thickness": 1},
-                    "bgcolor": "#f8fafc",
+                    "axis": {"range": [0, 100], "tickwidth": 1.5, "tickcolor": "#64748b"},
+                    "bar": {"color": "#1d4ed8", "thickness": 0.8},
+                    "bgcolor": "#f1f5f9",
                     "steps": [
-                        {"range": [0, 40], "color": "rgba(239, 68, 68, 0.1)"},
-                        {"range": [40, 75], "color": "rgba(245, 158, 11, 0.1)"},
-                        {"range": [75, 100], "color": "rgba(16, 185, 129, 0.1)"}
+                        {"range": [0, 40], "color": "rgba(239, 68, 68, 0.2)"},
+                        {"range": [40, 75], "color": "rgba(245, 158, 11, 0.2)"},
+                        {"range": [75, 100], "color": "rgba(16, 185, 129, 0.2)"}
                     ],
                 }
             ))
@@ -250,11 +330,11 @@ with tab1:
             v1, v2 = st.columns(2)
             with v1:
                 b_class = "badge-real" if label == "REAL" else "badge-fake"
-                st.markdown(f"<div style='text-align:center;'><b>BERT Classification</b><br><span class='badge {b_class}' style='margin-top:8px;'>{label}</span></div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='text-align:center;'><b style='color:#0f172a;'>BERT Classification</b><br><span class='badge {b_class}' style='margin-top:8px;'>{label}</span></div>", unsafe_allow_html=True)
             with v2:
                 ov = fact_result['overall_verdict']
                 f_class = "badge-real" if "REAL" in ov else "badge-fake" if "FAKE" in ov else "badge-uncertain"
-                st.markdown(f"<div style='text-align:center;'><b>Web Fact Check</b><br><span class='badge {f_class}' style='margin-top:8px;'>{ov}</span></div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='text-align:center;'><b style='color:#0f172a;'>Web Fact Check</b><br><span class='badge {f_class}' style='margin-top:8px;'>{ov}</span></div>", unsafe_allow_html=True)
 
             st.markdown("<hr>", unsafe_allow_html=True)
             
@@ -265,18 +345,18 @@ with tab1:
                 icon = "🟢" if "SUP" in verdict else "🔴" if "CON" in verdict else "🟡"
                 with st.expander(f"{icon} {claim['claim'][:60]}..."):
                     st.markdown(f"**Verdict:** `{claim['verdict']}`")
-                    st.markdown(f"<p style='color:#64748b;'>{claim['explanation']}</p>", unsafe_allow_html=True)
+                    st.markdown(f"<p style='color:#1e293b; font-size:0.95rem; line-height:1.5;'>{claim['explanation']}</p>", unsafe_allow_html=True)
 
             # Sentence Logic
             st.markdown("#### 🎨 Contextual Risk Heatmap")
             for s in sentences:
-                st.markdown(f"<div class='sent-box sent-{s['risk']}'>{s['sentence']} <span style='float:right; opacity:0.6; font-size:0.75rem;'>{s['fake_prob']}% Risk</span></div>", unsafe_allow_html=True)
+                st.markdown(f"<div class='sent-box sent-{s['risk']}'>{s['sentence']} <span style='float:right; font-weight:700; font-size:0.8rem;'>{s['fake_prob']}% Risk</span></div>", unsafe_allow_html=True)
         else:
             st.markdown("""
-            <div style="height:400px; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0.4; border:2px dashed #e2e8f0; border-radius:20px;">
-                <div style="font-size:3rem;">🔍</div>
-                <div style="font-weight:600;">System ready for input</div>
-                <div style="font-size:0.85rem;">Input article data to spawn audit log</div>
+            <div style="height:360px; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#ffffff; border:2px dashed #cbd5e1; border-radius:16px;">
+                <div style="font-size:3rem; margin-bottom:0.5rem;">🔍</div>
+                <div style="font-weight:700; color:#0f172a; font-size:1.1rem;">System ready for input</div>
+                <div style="font-size:0.9rem; color:#475569; margin-top:0.25rem;">Enter article text on the left to generate the investigation report</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -293,7 +373,7 @@ with tab2:
         fig_pie = px.pie(
             values=[stats["real"], stats["fake"]],
             names=["Verified Real", "Caught Fake"],
-            color_discrete_sequence=["#10b981", "#ef4444"],
+            color_discrete_sequence=["#16a34a", "#dc2626"],
             hole=0.6,
             title="Classification Distribution"
         )
